@@ -13,7 +13,6 @@ class Signin extends Component {
       error: "",
       redirectToReferer: false,
       loading: false
-      // recaptcha: false
     };
   }
 
@@ -22,38 +21,6 @@ class Signin extends Component {
     this.setState({ [name]: event.target.value });
   };
 
-  // recaptchaHandler = e => {
-  //     this.setState({ error: "" });
-  //     let userDay = e.target.value.toLowerCase();
-  //     let dayCount;
-
-  //     if (userDay === "sunday") {
-  //         dayCount = 0;
-  //     } else if (userDay === "monday") {
-  //         dayCount = 1;
-  //     } else if (userDay === "tuesday") {
-  //         dayCount = 2;
-  //     } else if (userDay === "wednesday") {
-  //         dayCount = 3;
-  //     } else if (userDay === "thursday") {
-  //         dayCount = 4;
-  //     } else if (userDay === "friday") {
-  //         dayCount = 5;
-  //     } else if (userDay === "saturday") {
-  //         dayCount = 6;
-  //     }
-
-  //     if (dayCount === new Date().getDay()) {
-  //         this.setState({ recaptcha: true });
-  //         return true;
-  //     } else {
-  //         this.setState({
-  //             recaptcha: false
-  //         });
-  //         return false;
-  //     }
-  // };
-  //-----------------------------------------------------------
   clickSubmit = event => {
     event.preventDefault();
     this.setState({ loading: true });
@@ -72,26 +39,8 @@ class Signin extends Component {
         });
       }
     });
-    // if (this.state.recaptcha) {
-    //     signin(user).then(data => {
-    //         if (data.error) {
-    //             this.setState({ error: data.error, loading: false });
-    //         } else {
-    //             // authenticate
-    //             authenticate(data, () => {
-    //                 this.setState({ redirectToReferer: true });
-    //             });
-    //         }
-    //     });
-    // } else {
-    //     this.setState({
-    //         loading: false,
-    //         error: "What day is today? Please write a correct answer!"
-    //     });
-    // }
   };
-  //-------------------------------------------------------
-  //signinForm = (email, password, recaptcha) => (
+
   signinForm = (email, password) => (
     <form>
       <div className="form-group">
@@ -112,18 +61,6 @@ class Signin extends Component {
           value={password}
         />
       </div>
-
-      {/* <div className="form-group">
-                <label className="text-muted">
-                    {recaptcha ? "Thanks. You got it!" : "What day is today?"}
-                </label>
-
-                <input
-                    onChange={this.recaptchaHandler}
-                    type="text"
-                    className="form-control"
-                />
-            </div> */}
 
       <button
         onClick={this.clickSubmit}
@@ -152,9 +89,7 @@ class Signin extends Component {
       <div className="container" style={{ marginTop: "200px" }}>
         <h2 className="mt-5 mb-5">SignIn</h2>
         <hr />
-        {/* <SocialLogin />
 
-                <hr /> */}
         <br />
 
         <div
@@ -172,17 +107,8 @@ class Signin extends Component {
             ""
           )}
 
-        {/* {this.signinForm(email, password, recaptcha)} */}
         {this.signinForm(email, password)}
-        {/* <p>
-                    <Link
-                        to="/forgot-password"
-                        className="btn btn-raised btn-danger"
-                    >
-                        {" "}
-                        Forgot Password
-                    </Link>
-                </p> */}
+
       </div>
     );
   }

@@ -12,7 +12,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 mongoose
-    .connect(process.env.MONGO_URI, {
+    .connect(process.env.MONGO_URI || "mongodb://user:password123@ds163689.mlab.com:63689/heroku_9ff53mv1", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
@@ -20,7 +20,7 @@ mongoose
 
 mongoose.connection.on('error', err => {
     console.log(`DB connection error: ${err.message}`);
-});
+}); 
 
 // bring in routes
 const postRoutes = require('./routes/post');

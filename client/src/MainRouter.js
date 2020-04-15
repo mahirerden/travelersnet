@@ -22,8 +22,6 @@ const MainRouter = () => (
         <Switch>
             <Route exact path="/" component={Home} />
             <PrivateRoute exact path="/admin" component={Admin} />
-            {/* <Route exact path="/forgot-password" component={ForgotPassword} />
-            <Route exact path="/reset-password/:resetPasswordToken" component={ResetPassword} /> */}
             <PrivateRoute exact path="/post/create" component={NewPost} />
             <Route exact path="/post/:postId" component={SinglePost} />
             <PrivateRoute

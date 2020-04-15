@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { signup } from "../auth";
 import { Link } from "react-router-dom";
-//import SocialLogin from "./SocialLogin";
 
 class Signup extends Component {
   constructor() {
@@ -12,7 +11,6 @@ class Signup extends Component {
       password: "",
       error: "",
       open: false
-      //recaptcha: false
     };
   }
 
@@ -21,38 +19,6 @@ class Signup extends Component {
     this.setState({ [name]: event.target.value });
   };
 
-  // recaptchaHandler = e => {
-  //     this.setState({ error: "" });
-  //     let userDay = e.target.value.toLowerCase();
-  //     let dayCount;
-
-  //     if (userDay === "sunday") {
-  //         dayCount = 0;
-  //     } else if (userDay === "monday") {
-  //         dayCount = 1;
-  //     } else if (userDay === "tuesday") {
-  //         dayCount = 2;
-  //     } else if (userDay === "wednesday") {
-  //         dayCount = 3;
-  //     } else if (userDay === "thursday") {
-  //         dayCount = 4;
-  //     } else if (userDay === "friday") {
-  //         dayCount = 5;
-  //     } else if (userDay === "saturday") {
-  //         dayCount = 6;
-  //     }
-
-  //     if (dayCount === new Date().getDay()) {
-  //         this.setState({ recaptcha: true });
-  //         return true;
-  //     } else {
-  //         this.setState({
-  //             recaptcha: false
-  //         });
-  //         return false;
-  //     }
-  // };
-  //---------------------------------------------------------
   clickSubmit = event => {
     event.preventDefault();
     const { name, email, password } = this.state;
@@ -72,26 +38,8 @@ class Signup extends Component {
           open: true
         });
     });
-    // if (this.state.recaptcha) {
-    //     signup(user).then(data => {
-    //         if (data.error) this.setState({ error: data.error });
-    //         else
-    //             this.setState({
-    //                 error: "",
-    //                 name: "",
-    //                 email: "",
-    //                 password: "",
-    //                 open: true
-    //             });
-    //     });
-    // } else {
-    //     this.setState({
-    //         error: "What day is today? Please write a correct answer!"
-    //     });
-    // }
   };
-  //-----------------------------------------------------------
-  //signupForm = (name, email, password, recaptcha) => (
+
   signupForm = (name, email, password) => (
     <form>
       <div className="form-group">
@@ -122,18 +70,6 @@ class Signup extends Component {
         />
       </div>
 
-      {/* <div className="form-group">
-                <label className="text-muted">
-                    {recaptcha ? "Thanks. You got it!" : "What day is today?"}
-                </label>
-
-                <input
-                    onChange={this.recaptchaHandler}
-                    type="text"
-                    className="form-control"
-                />
-            </div> */}
-
       <button
         onClick={this.clickSubmit}
         className="btn btn-raised btn-primary"
@@ -144,16 +80,13 @@ class Signup extends Component {
   );
 
   render() {
-    //const { name, email, password, error, open, recaptcha } = this.state;
     const { name, email, password, error, open } = this.state;
     return (
       <div className="container" style={{ marginTop: "200px" }}>
         <h2 className="mt-5 mb-5">Signup</h2>
 
         <hr />
-        {/* <SocialLogin />
 
-                <hr /> */}
         <br />
 
         <div
@@ -171,7 +104,6 @@ class Signup extends Component {
           <Link to="/signin">Sign In</Link>.
                 </div>
 
-        {/* {this.signupForm(name, email, password, recaptcha)} */}
         {this.signupForm(name, email, password)}
       </div>
     );
