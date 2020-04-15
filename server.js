@@ -13,7 +13,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 mongoose
-    .connect(process.env.MONGO_URI, {
+    .connect(process.env.MONGO_URI || "mongodb://user:password123@ds163689.mlab.com:63689/heroku_9ff53mv1", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
