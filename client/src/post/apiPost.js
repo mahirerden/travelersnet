@@ -27,7 +27,7 @@ export const list = () => {
 
 export const singlePost = postId => {
     // ${process.env.REACT_APP_API_URL}
-    return fetch(`/post/${postId}`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/post/${postId}`, {
         method: "GET"
     })
         .then(response => {
