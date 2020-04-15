@@ -8,11 +8,12 @@ var cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
 const fs = require('fs');
 const cors = require('cors');
-const dotenv = require('dotenv');
-dotenv.config();
+// const dotenv = require('dotenv');
+// dotenv.config();
+require('dotenv').config();
 
 mongoose
-    .connect(process.env.MONGO_URI || "mongodb://user:password123@ds163689.mlab.com:63689/heroku_9ff53mv1", {
+    .connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
@@ -55,18 +56,18 @@ app.use(function(err, req, res, next) {
     }
 });
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
 
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
 const PORT = process.env.PORT || 8080;
+
 app.listen(PORT, function() {
   console.log(`API server now on port ${PORT}`);
 });

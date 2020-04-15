@@ -126,7 +126,7 @@ class Comment extends Component {
                                             (i.target.src = `${DefaultProfile}`)
                                         }
                                         //${process.env.REACT_APP_API_URL}
-                                        src={`/user/photo/${comment.postedBy._id}`}
+                                        src={`${process.env.REACT_APP_API_URL}/user/photo/${comment.postedBy._id}`}
                                         alt={comment.postedBy.name}
                                     />
                                 </Link>

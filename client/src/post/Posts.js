@@ -11,8 +11,8 @@ class Posts extends Component {
         };
     }
 
-    loadPosts = page => {
-        list(page).then(data => {
+    loadPosts = () => {
+        list().then(data => {
             if (data.error) {
                 console.log(data.error);
             } else {
@@ -22,7 +22,7 @@ class Posts extends Component {
     };
 
     componentDidMount() {
-        this.loadPosts(this.state.page);
+        this.loadPosts();
     }
 
     renderPosts = posts => {
@@ -41,7 +41,7 @@ class Posts extends Component {
                             <div className="card-body">
                                 <img
                                     //${process.env.REACT_APP_API_URL}
-                                    src={`/post/photo/${post._id}`}
+                                    src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
                                     alt={post.title}
                                     onError={i =>
                                         (i.target.src = `${DefaultPost}`)
