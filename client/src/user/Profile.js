@@ -81,11 +81,8 @@ class Profile extends Component {
     const { redirectToSignin, user, posts } = this.state;
     if (redirectToSignin) return <Redirect to="/signin" />;
 
-    const photoUrl = user._id
-      ? `${process.env.REACT_APP_API_URL}/user/photo/${
-          user._id
-        }?${new Date().getTime()}`
-      : DefaultProfile;
+    //${process.env.REACT_APP_API_URL}
+    const photoUrl = user._id ? `/user/photo/${user._id}?${new Date().getTime()}`: DefaultProfile;
 
     return (
       <div className="container" style={{ marginTop: "150px" }}>

@@ -180,11 +180,8 @@ class EditProfile extends Component {
       return <Redirect to={`/user/${id}`} />;
     }
 
-    const photoUrl = id
-      ? `${
-          process.env.REACT_APP_API_URL
-        }/user/photo/${id}?${new Date().getTime()}`
-      : DefaultProfile;
+    //${process.env.REACT_APP_API_URL}
+    const photoUrl = id ? `/user/photo/${id}?${new Date().getTime()}` : DefaultProfile;
 
     return (
       <div className="container" style={{ marginTop: "150px" }}>

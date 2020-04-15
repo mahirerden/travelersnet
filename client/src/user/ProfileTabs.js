@@ -28,9 +28,8 @@ class ProfileTabs extends Component {
                                             onError={i =>
                                                 (i.target.src = `${DefaultProfile}`)
                                             }
-                                            src={`${
-                                                process.env.REACT_APP_API_URL
-                                            }/user/photo/${person._id}`}
+                                            //${process.env.REACT_APP_API_URL}
+                                            src={`/user/photo/${person._id}`}
                                             alt={person.name}
                                         />
                                         <div>
@@ -64,9 +63,8 @@ class ProfileTabs extends Component {
                                             onError={i =>
                                                 (i.target.src = `${DefaultProfile}`)
                                             }
-                                            src={`${
-                                                process.env.REACT_APP_API_URL
-                                            }/user/photo/${person._id}`}
+                                            //${process.env.REACT_APP_API_URL}
+                                            src={`/user/photo/${person._id}`}
                                             alt={person.name}
                                         />
                                         <div>
