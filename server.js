@@ -10,14 +10,12 @@ const fs = require('fs');
 const cors = require('cors');
 // const dotenv = require('dotenv');
 // dotenv.config();
-//require('dotenv').config();
-const config = require('config');
-const db = config.get('mongoURI');
-
-//.connect(process.env.MONGO_URI, {
+require('dotenv').config();
+// const config = require('config');
+// const db = config.get('mongoURI');
 
 mongoose
-    .connect(db, {
+  .connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
