@@ -4,6 +4,7 @@ const expressJwt = require('express-jwt');
 const User = require('../models/user');
 const gravatar = require('gravatar');
 const normalize = require('normalize-url');
+const config = require('config');
 
 exports.signup = async (req, res) => {
     const userExists = await User.findOne({ email: req.body.email });
@@ -53,7 +54,8 @@ exports.signin = (req, res) => {
             });
         }
         // generate a token with user id and secret
-        const token = jwt.sign({ _id: user._id, role: user.role }, process.env.JWT_SECRET || "mysecrettoken");
+        //const token = jwt.sign({ _id: user._id, role: user.role }, process.env.JWT_SECRET || "mysecrettoken");
+        const token = jwt.sign({ _id: user._id, role: user.role }, config.get('jwtSecret'));
         // persist the token as 't' in cookie with expiry date
         res.cookie('t', token, { expire: new Date() + 9999 });
         // retrun response with user and token to frontend client
@@ -67,9 +69,14 @@ exports.signout = (req, res) => {
     return res.json({ message: 'Signout success!' });
 };
 
+// exports.requireSignin = expressJwt({
+//     secret: process.env.JWT_SECRET || "mysecrettoken",
+//     userProperty: 'auth'
+// });
+
 exports.requireSignin = expressJwt({
-    secret: process.env.JWT_SECRET || "mysecrettoken",
-    userProperty: 'auth'
+  secret: config.get('jwtSecret'),
+  userProperty: 'auth'
 });
 
 

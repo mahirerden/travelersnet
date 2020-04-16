@@ -10,10 +10,14 @@ const fs = require('fs');
 const cors = require('cors');
 // const dotenv = require('dotenv');
 // dotenv.config();
-require('dotenv').config();
+//require('dotenv').config();
+const config = require('config');
+const db = config.get('mongoURI');
+
+//.connect(process.env.MONGO_URI, {
 
 mongoose
-    .connect(process.env.MONGO_URI || "mongodb://user:password123@ds163689.mlab.com:63689/heroku_9ff53mv1", {
+    .connect(db, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
