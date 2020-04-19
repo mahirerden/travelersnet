@@ -11,7 +11,7 @@ const cors = require('cors');
 // const dotenv = require('dotenv');
 // dotenv.config();
 //require('dotenv').config();
-// const config = require('config');
+// const config = require('confi
 // const db = config.get('mongoURI');
 
 
