@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { signup } from "../auth";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Signup extends Component {
   constructor() {
@@ -27,9 +28,32 @@ class Signup extends Component {
       email,
       password
     };
-    signup(user).then(data => {
-      if (data.error) this.setState({ error: data.error });
-      else
+    // const config = {
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json'
+    //   }
+    // };
+
+    // axios.post("/api/signup", { config, body: JSON.stringify(user) })
+    //   .then((res) => {
+    //     console.log(res.data)
+    //   }).catch((error) => {
+    //     console.log(error)
+    //   });
+
+    // this.setState({
+    //   error: "",
+    //   name: "",
+    //   email: "",
+    //   password: "",
+    //   open: true
+    // });
+
+     signup(user).then(data => {
+      console.log("data : " + data)
+       if (data.error) this.setState({ error: data.error });
+       else
         this.setState({
           error: "",
           name: "",

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 //import { Link, Redirect } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { signin, authenticate } from "../auth";
-//import SocialLogin from "./SocialLogin";
 
 class Signin extends Component {
   constructor() {

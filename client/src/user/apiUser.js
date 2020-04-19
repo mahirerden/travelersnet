@@ -1,6 +1,6 @@
 export const read = (userId, token) => {
     //${process.env.REACT_APP_API_URL}
-    return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
+    return fetch(`/api/user/${userId}`, {
         method: "GET",
         headers: {
             Accept: "application/json",
@@ -17,7 +17,7 @@ export const read = (userId, token) => {
 export const update = (userId, token, user) => {
     console.log("USER DATA UPDATE: ", user);
     //${process.env.REACT_APP_API_URL}
-    return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
+    return fetch(`/api/user/${userId}`, {
         method: "PUT",
         headers: {
             Accept: "application/json",
@@ -33,7 +33,7 @@ export const update = (userId, token, user) => {
 
 export const remove = (userId, token) => {
     //${process.env.REACT_APP_API_URL}
-    return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
+    return fetch(`/api/user/${userId}`, {
         method: "DELETE",
         headers: {
             Accept: "application/json",
@@ -49,7 +49,7 @@ export const remove = (userId, token) => {
 
 export const list = () => {
     //${process.env.REACT_APP_API_URL}
-    return fetch(`${process.env.REACT_APP_API_URL}/users`, {
+    return fetch("/api/users", {
         method: "GET"
     })
         .then(response => {
@@ -71,7 +71,7 @@ export const updateUser = (user, next) => {
 
 export const follow = (userId, token, followId) => {
     //${process.env.REACT_APP_API_URL}
-    return fetch(`${process.env.REACT_APP_API_URL}/user/follow`, {
+    return fetch("/api/user/follow", {
         method: "PUT",
         headers: {
             Accept: "application/json",
@@ -88,7 +88,7 @@ export const follow = (userId, token, followId) => {
 
 export const unfollow = (userId, token, unfollowId) => {
     //${process.env.REACT_APP_API_URL}
-    return fetch(`${process.env.REACT_APP_API_URL}/user/unfollow`, {
+    return fetch("/api/user/unfollow", {
         method: "PUT",
         headers: {
             Accept: "application/json",
@@ -105,7 +105,7 @@ export const unfollow = (userId, token, unfollowId) => {
 
 export const findPeople = (userId, token) => {
     //${process.env.REACT_APP_API_URL}
-    return fetch(`${process.env.REACT_APP_API_URL}/user/findpeople/${userId}`, {
+    return fetch(`/api/user/findpeople/${userId}`, {
         method: "GET",
         headers: {
             Accept: "application/json",

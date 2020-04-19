@@ -1,6 +1,22 @@
+//import axios from "axios";
+
+// export const signup = (user) => {
+//   const config = {
+//     headers: {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json'
+//     }
+//   };
+//   axios.post("/api/signup", { config, body: JSON.stringify(user)})
+//     .then(response => {
+//       console.log("response : " + response);
+//       return response.json();
+//     })
+//     .catch(err => console.log(err));
+// };
+
 export const signup = user => {
-    //${process.env.REACT_APP_API_URL}
-    return fetch(`${process.env.REACT_APP_API_URL}/signup`, {
+    return fetch("/api/signup", {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -16,7 +32,7 @@ export const signup = user => {
 
 export const signin = user => {
     //${process.env.REACT_APP_API_URL}
-    return fetch(`${process.env.REACT_APP_API_URL}/signin`, {
+    return fetch("/api/signin", {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -48,7 +64,7 @@ export const signout = next => {
     if (typeof window !== 'undefined') localStorage.removeItem('jwt');
     next();
     // ${process.env.REACT_APP_API_URL}
-    return fetch(`/signout`, {
+    return fetch("/api/signout", {
         method: 'GET'
     })
         .then(response => {

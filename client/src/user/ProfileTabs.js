@@ -29,7 +29,7 @@ class ProfileTabs extends Component {
                                                 (i.target.src = `${DefaultProfile}`)
                                             }
                                             //${process.env.REACT_APP_API_URL}
-                                            src={`${process.env.REACT_APP_API_URL}/user/photo/${person._id}`}
+                                            src={`/api/user/photo/${person._id}`}
                                             alt={person.name}
                                         />
                                         <div>
@@ -64,7 +64,7 @@ class ProfileTabs extends Component {
                                                 (i.target.src = `${DefaultProfile}`)
                                             }
                                             //${process.env.REACT_APP_API_URL}
-                                            src={`${process.env.REACT_APP_API_URL}/user/photo/${person._id}`}
+                                            src={`/api/user/photo/${person._id}`}
                                             alt={person.name}
                                         />
                                         <div>

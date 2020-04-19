@@ -181,7 +181,7 @@ class EditProfile extends Component {
     }
 
     //${process.env.REACT_APP_API_URL}
-    const photoUrl = id ? `${process.env.REACT_APP_API_URL}/user/photo/${id}?${new Date().getTime()}` : DefaultProfile;
+    const photoUrl = id ? `/api/user/photo/${id}?${new Date().getTime()}` : DefaultProfile;
 
     return (
       <div className="container" style={{ marginTop: "150px" }}>

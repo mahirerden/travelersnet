@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { list } from "./apiPost";
+//import { list } from "./apiPost";
 import DefaultPost from "../images/mountains.jpg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Posts extends Component {
   constructor() {
@@ -11,25 +12,22 @@ class Posts extends Component {
     };
   }
 
-  // loadPosts = () => {
-  //     list().then(data => {
-  //         if (data.error) {
-  //             console.log(data.error);
-  //         } else {
-  //             this.setState({ posts: data });
-  //         }
-  //     });
-  // };
+   loadPosts = async () => {
+    // let data = await (await fetch("/api/posts")).json();
+    // this.setState({ posts: data });
+    try {
+      const res = await axios.get("/api/posts");
+      // .then((resdata) => {return resdata.data})
+      // this.setState({ posts: res });
+      const data = await res.data;
+      this.setState({ posts: data });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   componentDidMount() {
-      // this.loadPosts();
-      list().then(data => {
-        if (data.error) {
-            console.log(data.error);
-        } else {
-            this.setState({ posts: data });
-        }
-    });
+    this.loadPosts();
   }
 
   renderPosts = posts => {
@@ -48,7 +46,7 @@ class Posts extends Component {
               <div className="card-body">
                 <img
                   //${process.env.REACT_APP_API_URL}
-                  src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
+                  src={`/api/post/photo/${post._id}`}
                   alt={post.title}
                   onError={i =>
                     (i.target.src = `${DefaultPost}`)
@@ -63,17 +61,16 @@ class Posts extends Component {
                 <br />
                 <p className="font-italic mark">
                   Posted by{" "}
-                  <Link to={`${posterId}`}>
-                    {posterName}{" "}
-                  </Link>
-                                    on {new Date(post.created).toDateString()}
+                    <Link to={`${posterId}`}>
+                      {posterName}{" "}
+                    </Link>
+                  on {new Date(post.created).toDateString()}
                 </p>
                 <Link
                   to={`/post/${post._id}`}
-                  className="btn btn-raised btn-primary btn-sm"
-                >
+                  className="btn btn-raised btn-primary btn-sm">
                   Read more
-                                </Link>
+                </Link>
               </div>
             </div>
           );

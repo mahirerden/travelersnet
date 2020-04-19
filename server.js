@@ -10,12 +10,17 @@ const fs = require('fs');
 const cors = require('cors');
 // const dotenv = require('dotenv');
 // dotenv.config();
-require('dotenv').config();
+//require('dotenv').config();
 // const config = require('config');
 // const db = config.get('mongoURI');
 
+
+// local = "mongodb://127.0.0.1:27017/travelersnet"
+// mongo atlas = "mongodb+srv://user:user1234@travelersnet-yiloa.gcp.mongodb.net/test?retryWrites=true&w=majority"
+// mlab = "mongodb://user:password123@ds035260.mlab.com:35260/heroku_nzs96dxv"
+
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect("mongodb://user:password123@ds035260.mlab.com:35260/heroku_nzs96dxv", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
