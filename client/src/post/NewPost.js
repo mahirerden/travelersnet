@@ -97,6 +97,7 @@ class NewPost extends Component {
                 <textarea
                     onChange={this.handleChange("body")}
                     type="text"
+                    row="6"
                     className="form-control"
                     value={body}
                 />

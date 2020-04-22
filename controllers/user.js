@@ -107,6 +107,11 @@ exports.updateUser = (req, res, next) => {
 };
 
 exports.userPhoto = (req, res, next) => {
+  // if (req.profile.avatar) {
+  //   //res.set(('Content-Type', req.profile.photo.contentType));
+  //   console.log("Avatar : " + req.profile.avatar);
+  //   return res.send(req.profile.avatar);
+  // }
   if (req.profile.photo.data) {
     res.set(('Content-Type', req.profile.photo.contentType));
     return res.send(req.profile.photo.data);

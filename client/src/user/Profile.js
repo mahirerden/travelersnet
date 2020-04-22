@@ -83,6 +83,7 @@ class Profile extends Component {
 
     //${process.env.REACT_APP_API_URL}
     const photoUrl = user._id ? `/api/user/photo/${user._id}?${new Date().getTime()}`: DefaultProfile;
+    //const photoUrl = user.avatar;
 
     return (
       <div className="container" style={{ marginTop: "150px" }}>

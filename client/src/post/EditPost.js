@@ -14,6 +14,7 @@ class EditPost extends Component {
             redirectToProfile: false,
             error: "",
             fileSize: 0,
+            postId: "",
             loading: false
         };
     }
@@ -27,6 +28,7 @@ class EditPost extends Component {
                     id: data.postedBy._id,
                     title: data.title,
                     body: data.body,
+                    postId: data._id,
                     error: ""
                 });
             }
@@ -134,6 +136,7 @@ class EditPost extends Component {
             body,
             redirectToProfile,
             error,
+            postId,
             loading
         } = this.state;
 
@@ -142,7 +145,7 @@ class EditPost extends Component {
         }
 
         return (
-            <div className="container" style={{ marginTop: "200px" }}>
+            <div className="container" style={{ marginTop: "150px" }}>
                 <h2 className="mt-5 mb-5">{title}</h2>
 
                 <div
@@ -164,7 +167,8 @@ class EditPost extends Component {
                     style={{ height: "200px", width: "auto" }}
                     className="img-thumbnail"
                     //${process.env.REACT_APP_API_URL}
-                    src={`/api/post/photo/${id}?${new Date().getTime()}`}
+                    //src={`/api/post/photo/${id}?${new Date().getTime()}`}
+                    src={`/api/post/photo/${postId}`}
                     onError={i => (i.target.src = `${DefaultPost}`)}
                     alt={title}
                 />

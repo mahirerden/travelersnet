@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth';
+import logo from "../images/logo4.png"
 
 const isActive = (history, path) => {
   if (history.location.pathname === path) return { color: '#ff9900' };
@@ -11,10 +12,9 @@ const Menu = ({ history }) => (
   <div>
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light bg-secondary fixed-top">
-        <span className="navbar-brand mb-0 h1" style={{ color: "orange", fontSize: "30px" }}>
-          <img src="#" width="30" height="30" className="d-inline-block align-top" alt="" />
-            TravelersNet
-          </span>
+        <span className="navbar-brand">
+          <img src={ logo } className="d-inline-block align-top ml-5" alt="logo" />
+        </span>
         <div className="collapse navbar-collapse pr-5 " id="navbarNav">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -24,12 +24,10 @@ const Menu = ({ history }) => (
             </li>
 
             <li className="nav-item">
-              <Link
-                className={history.location.pathname === '/users' ? 'active nav-link' : 'not-active nav-link'}
-                to="/users"
-              >
+              <Link to={`/users`} style={isActive(history, `/users`)} className="nav-link">
+              {/* <Link className={history.location.pathname === '/users' ? 'active nav-link' : 'not-active nav-link'} to="/users" > */}
                 Users
-                </Link>
+              </Link>
             </li>
 
             <li className="nav-item">

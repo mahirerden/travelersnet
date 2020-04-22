@@ -181,11 +181,12 @@ class EditProfile extends Component {
     }
 
     //${process.env.REACT_APP_API_URL}
-    const photoUrl = id ? `/api/user/photo/${id}?${new Date().getTime()}` : DefaultProfile;
+    //const photoUrl = id ? `/api/user/photo/${id}?${new Date().getTime()}` : DefaultProfile;
+    //const photoUrl = id ? `/api/user/photo/${id}` : DefaultProfile;
 
     return (
-      <div className="container" style={{ marginTop: "150px" }}>
-        <h2 className="mt-5 mb-5">Edit Profile</h2>
+      <div className="container" style={{ marginTop: "100px" }}>
+        <h2 className="mt-3 mb-3">Edit Profile</h2>
         <div
           className="alert alert-danger"
           style={{ display: error ? "" : "none" }}
@@ -204,7 +205,8 @@ class EditProfile extends Component {
         <img
           style={{ height: "200px", width: "auto" }}
           className="img-thumbnail"
-          src={photoUrl}
+          src={`/api/user/photo/${id}`}
+          //src={photoUrl}
           onError={i => (i.target.src = `${DefaultProfile}`)}
           alt={name}
         />

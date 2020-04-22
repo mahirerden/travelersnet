@@ -86,7 +86,7 @@ class Signin extends Component {
 
     return (
       <div className="container" style={{ marginTop: "200px" }}>
-        <h2 className="mt-5 mb-5">SignIn</h2>
+        <h2 className="mt-5 mb-5">Login to TravelersNet</h2>
         <hr />
 
         <br />

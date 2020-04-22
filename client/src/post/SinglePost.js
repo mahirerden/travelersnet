@@ -177,7 +177,7 @@ class SinglePost extends Component {
         }
 
         return (
-            <div className="container" style={{ marginTop: "200px" }}>
+            <div className="container" style={{ marginTop: "100px" }}>
                 <h2 className="display-2 mt-5 mb-5">{post.title}</h2>
 
                 {!post ? (
