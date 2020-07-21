@@ -27,7 +27,7 @@
     "formidable": "^1.2.1",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.4.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "mongoose": "^5.4.3",
     "mongoose-mongodb-errors": "0.0.2",
     "morgan": "^1.10.0",
